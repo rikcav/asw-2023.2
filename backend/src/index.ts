@@ -1,8 +1,11 @@
 import express from "express";
+import cors from "cors";
 const routes = require("./prisma/routes");
 
 const app = express();
 const port = 3000;
+
+app.use(cors({ origin: "http://localhost:5173" }));
 
 app.use(express.json());
 routes(app);

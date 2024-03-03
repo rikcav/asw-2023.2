@@ -1,10 +1,9 @@
-import "./App.css";
-import ItemList from "./components/Item";
+import Home from "./pages/Home"
 
 function App() {
   return (
     <>
-      <ItemList />
+      <Home />
     </>
   );
 }

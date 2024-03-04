@@ -11,3 +11,12 @@ export const createOrder = async (data: object) => {
         throw e;
     }
 };
+
+export const getOrderById = async (id: number) => {
+    try {
+        const order = await getOrderByIdRepository(id);
+        return order;
+    } catch (e) {
+        throw e;
+    }
+};

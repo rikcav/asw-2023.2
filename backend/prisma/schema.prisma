@@ -15,6 +15,7 @@ model User {
   name  String
   email String @unique
   phone String @unique
+  orders Order[]
 }
 
 model Item {
@@ -24,4 +25,17 @@ model Item {
   price       Float
   image_url   String
   description String
+  orders      Order[]
+}
+
+model Order {
+  id        Int    @id @default(autoincrement())
+  user_id   Int
+  item_id   Int
+  quantity  Int
+  total     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User   @relation(fields: [user_id], references: [id])
+  Item      Item   @relation(fields: [item_id], references: [id])
 }

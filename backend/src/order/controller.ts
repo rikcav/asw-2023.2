@@ -20,3 +20,13 @@ export const getId = async (req: express.Request, res: express.Response) => {
         res.status(400).send(e);
     }
 };
+
+export const getAll = async (req: express.Request, res: express.Response) => {
+  try {
+        const order = await orderService.getAllOrders();
+        res.status(200).send(order);
+    } catch (e) {
+        console.log(e);
+        res.status(400).send(e);
+    }
+};

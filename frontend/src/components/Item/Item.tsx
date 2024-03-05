@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Item } from "../entities/Item";
+import { Item } from "../../entities/Item";
+import "./style.css"; // Importe o arquivo style.css
 
 const ItemList: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
@@ -40,20 +41,20 @@ const ItemList: React.FC = () => {
       ].map((category) => (
         <div key={category}>
           <h2>{category}</h2>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div className="item-list">
             {items
               .filter((item) => item.category === category)
               .map((item) => (
                 <div
                   key={item.id}
-                  style={{ flex: "0 0 220px", margin: "10px" }}
+                  className="item"
                 >
                   <h3>{item.name}</h3>
                   <p>Preço: {formatPrice(item.price)}</p>
                   <img
                     src={item.image_url}
                     alt={item.name}
-                    style={{ width: "100%", height: "auto" }}
+                    className="item-image"
                   />
                   <p>{renderDescription(item.description)}</p>
                 </div>

@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+    padding: 10px 20px;
+    margin: 0; 
+  }
+  
+  .logo-container {
+    margin-right: 10px;
+  }
+  
+  .logo {
+    height: 50px; 
+    width: auto; 
+  }
+  

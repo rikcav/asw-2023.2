@@ -5,24 +5,8 @@ export const createOrder = async (data: object) => {
     data,
     select: {
       id: true,
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          phone: true,
-        },
-      },
-      item: {
-        select: {
-          id: true,
-          name: true,
-          category: true,
-          price: true,
-          image_url: true,
-          description: true,
-        },
-      },
+      user_id: true,
+      item_id: true,
       quantity: true,
       total: true,
       createdAt: true,
@@ -40,24 +24,8 @@ export const getOrderById = async (id: number) => {
     },
     select: {
       id: true,
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          phone: true,
-        },
-      },
-      item: {
-        select: {
-          id: true,
-          name: true,
-          category: true,
-          price: true,
-          image_url: true,
-          description: true,
-        },
-      },
+      user_id: true,
+      item_id: true,
       quantity: true,
       total: true,
       createdAt: true,
@@ -66,4 +34,20 @@ export const getOrderById = async (id: number) => {
   });
 
   return order;
+};
+
+export const getAllOrders = async () => {
+  const orders = await prisma.order.findMany({
+    select: {
+      id: true,
+      user_id: true,
+      item_id: true,
+      quantity: true,
+      total: true,
+      createdAt: true,
+      updatedAt: true,
+    },
+  });
+
+  return orders;
 };
